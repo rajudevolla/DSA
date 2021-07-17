@@ -20,6 +20,21 @@
 
 class Solution:
     def jump(self, nums: List[int]) -> int:
+   
+#         curr_end=farthest=nums[0]
+#         jumps=1
+#         n=len(nums)
+#         if n==1:
+#             return 0
+#         for i in range(1,n):
+#             if i == n-1:
+#                 return jumps
+#             farthest = max(farthest, nums[i]+i)
+#             if i == curr_end:
+#                 jumps +=1
+#                 curr_end = farthest
+#         return jumps
+       
         target,start,end,step=len(nums)-1,0,0,0
         while end < target:
             step += 1
