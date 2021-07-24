@@ -1,0 +1,26 @@
+#Example 1:
+
+#Input: mat = [[3,3,1,1],[2,2,1,2],[1,1,1,2]]
+#Output: [[1,1,1,1],[1,2,2,2],[1,2,3,3]]
+def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
+        d={}
+        n = len(mat)
+        m = len(mat[0])
+        
+        for i in range(n):
+            for j in range(m):
+                if i-j in d:
+                    d[i-j].extend([mat[i][j]])
+                else:
+                    d[i-j] = [mat[i][j]]
+        for ele in d.items():
+            ele[1].sort()
+        # print(d)
+        for i in range(n):
+            for j in range(m):
+                # print( d[i-j][0])
+                mat[i][j] = d[i-j][0]
+                d[i-j].pop(0)
+                # print(d)
+        return mat
+     
